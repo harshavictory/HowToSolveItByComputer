@@ -1,5 +1,54 @@
 #include <iostream>
 
+namespace factorial
+{
+	bool IsValidFactorial(int factorial)
+    {
+        int result=1;
+        for(int i=1;; i++)
+        {
+            result *= i;
+            if(result == factorial)
+                return true;
+            else if(result > factorial)
+                break;
+        }
+        return false;
+    }
+
+    bool IsNumber(const std::string& data)
+    {
+        return !data.empty() && (std::find_if(data.begin(), data.end(), [](const char& ch){
+            return !std::isdigit(static_cast<int>(ch));
+        }) == data.end());
+    }
+
+    void f_2_4_4()
+    {
+        std::cout<<"Enter factorial number(n), n>0: ";
+        std::string number;
+        std::cin>>number;
+        assertm(IsNumber(number) && number!="0", "n is not a valid number");
+        int n = std::stoi(number);
+        
+        if(IsValidFactorial(n))
+        {
+            for(int i=1;; i++)
+            {
+                if(n%i)
+                {
+                    std::cout<<"Max factorial number is " << i-1 <<std::endl;
+                    break;
+                }
+            }
+        }
+        else
+        {
+            std::cout<<"!! Not a valid factorial number.!!"<<std::endl;
+        }
+    }
+}
+
 // Algorithm to compute sum of 'n' no's s=1-3+5-7+9-....., reads from standard input.
 void f_2_3_8()
 {
