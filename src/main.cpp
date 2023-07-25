@@ -1,5 +1,27 @@
 #include <iostream>
 
+// Algorithm to compute sum of 'n' no's s=1-3+5-7+9-....., reads from standard input.
+void f_2_3_8()
+{
+    int index=1;
+    int result=1;
+    int n;
+    std::cout<<"Enter no of values to compute(n): ";
+    std::cin >> n;
+    for(int i=1; index<n; i+=2,index++)
+    {
+        if(index%2)
+        {
+            result -= i+2;
+        }
+        else
+        {
+            result += i+2;
+        }
+    }
+    std::cout<<"result: " << result<<std::endl;
+}
+
 void f_2_2_1()
 {
     float maxMarks=100.0;
