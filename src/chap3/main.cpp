@@ -20,3 +20,9 @@ int f_3_1_1(int number)
     }
     return result;
 }
+
+int f_3_1_1()
+{
+    if(number < 2)
+        return number;
+}
